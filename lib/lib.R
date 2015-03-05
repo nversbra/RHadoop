@@ -187,7 +187,7 @@ pcor.reducer <- function(key, YY) {
 
 sum.map <- function(key, Xi) {
   nrow <- nrow(Xi)
-  sum <- apply(m, 2, sum, na.rm=TRUE)
+  sum <- apply(Xi, 2, function(x) {sum(as.numeric(x), na.rm=TRUE)})
   keyval(key=1, val=list(list(n=nrow, sum=sum)))
 }
 
